@@ -1,26 +1,195 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Tailwind v4's `dark:` variant defaults to the `prefers-color-scheme`
+   media query. This site uses next-themes' `class` strategy (a `dark`
+   class toggled on <html>) so every `dark:` utility needs to key off that
+   class instead — without this, `dark:*` classes are silently inert
+   regardless of the toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f7fb;
+  --foreground: #0a1630;
+
+  --navy-950: #050b18;
+  --navy-900: #0a1630;
+  --navy-800: #101f42;
+  --navy-700: #17305f;
+  --navy-600: #21407d;
+
+  --royal-600: #1c3fd6;
+  --royal-500: #2b56f5;
+  --royal-400: #5b7dff;
+  --royal-300: #93a9ff;
+
+  --gold-600: #b8872c;
+  --gold-500: #d4af37;
+  --gold-400: #e8c766;
+  --gold-300: #f2dfa0;
+}
+
+/* Dark mode: the brand already leans dark/navy (hero, focus areas, footer
+   are hardcoded dark regardless of theme), so this is mostly about flipping
+   the handful of sections that are currently hardcoded light — not a full
+   re-skin. Toggled by next-themes via a `dark` class on <html>. */
+:root.dark {
+  --background: var(--navy-950);
+  --foreground: #f5f6fa;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+
+  --color-royal-600: var(--royal-600);
+  --color-royal-500: var(--royal-500);
+  --color-royal-400: var(--royal-400);
+  --color-royal-300: var(--royal-300);
+
+  --color-gold-600: var(--gold-600);
+  --color-gold-500: var(--gold-500);
+  --color-gold-400: var(--gold-400);
+  --color-gold-300: var(--gold-300);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  /* Frosted glass panel over dark, colourful backgrounds (hero, nav) */
+  .glass {
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.04)
+    );
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 8px 32px rgba(5, 11, 24, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Always-dark frosted pill for the fixed navbar — needs to stay readable
+     whether the section scrolled behind it is the dark hero or a light
+     section, so unlike .glass it doesn't lean on a dark backdrop to work. */
+  .glass-nav {
+    background: rgba(5, 11, 24, 0.62);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 8px 32px rgba(5, 11, 24, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  /* Frosted glass panel over light backgrounds (content sections) */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 8px 30px rgba(16, 31, 66, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  /* In dark mode the section behind these cards flips to navy, so the
+     "light" glass treatment converges toward the same frosted-dark look
+     .glass already uses elsewhere. */
+  :root.dark .glass-light {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-gold {
+    background: linear-gradient(
+      165deg,
+      rgba(232, 199, 102, 0.35),
+      rgba(212, 175, 55, 0.12)
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(242, 223, 160, 0.45);
+    box-shadow:
+      0 8px 32px rgba(184, 135, 44, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .mesh-hero {
+    background:
+      radial-gradient(at 15% 15%, rgba(43, 86, 245, 0.55) 0px, transparent 55%),
+      radial-gradient(at 85% 5%, rgba(212, 175, 55, 0.35) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(91, 125, 255, 0.4) 0px, transparent 55%),
+      radial-gradient(at 95% 85%, rgba(232, 199, 102, 0.22) 0px, transparent 50%),
+      var(--navy-950);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.35);
+  }
+
+  /* Hero slideshow backdrops — stand-ins for real programme photography.
+     Heavily blurred + scrim'd (see HeroSlideshow) so they read as abstract
+     colour/light rather than literal images, which keeps the hero text
+     legible without needing real photos yet. Light mode gets a paler wash
+     on the site's light background token; dark mode keeps the original
+     saturated-on-navy look. */
+  .hero-slide-1 {
+    background:
+      radial-gradient(at 25% 20%, rgba(43, 86, 245, 0.35) 0px, transparent 55%),
+      radial-gradient(at 80% 75%, rgba(212, 175, 55, 0.3) 0px, transparent 55%),
+      #f6f7fb;
+  }
+  .hero-slide-2 {
+    background:
+      radial-gradient(at 75% 25%, rgba(91, 125, 255, 0.32) 0px, transparent 55%),
+      radial-gradient(at 20% 80%, rgba(232, 199, 102, 0.28) 0px, transparent 55%),
+      #f6f7fb;
+  }
+  .hero-slide-3 {
+    background:
+      radial-gradient(at 20% 65%, rgba(212, 175, 55, 0.32) 0px, transparent 55%),
+      radial-gradient(at 78% 30%, rgba(43, 86, 245, 0.3) 0px, transparent 55%),
+      #f6f7fb;
+  }
+
+  :root.dark .hero-slide-1 {
+    background:
+      radial-gradient(at 25% 20%, rgba(43, 86, 245, 0.6) 0px, transparent 55%),
+      radial-gradient(at 80% 75%, rgba(212, 175, 55, 0.35) 0px, transparent 55%),
+      var(--navy-950);
+  }
+  :root.dark .hero-slide-2 {
+    background:
+      radial-gradient(at 75% 25%, rgba(91, 125, 255, 0.55) 0px, transparent 55%),
+      radial-gradient(at 20% 80%, rgba(232, 199, 102, 0.3) 0px, transparent 55%),
+      var(--navy-950);
+  }
+  :root.dark .hero-slide-3 {
+    background:
+      radial-gradient(at 20% 65%, rgba(212, 175, 55, 0.45) 0px, transparent 55%),
+      radial-gradient(at 78% 30%, rgba(43, 86, 245, 0.5) 0px, transparent 55%),
+      var(--navy-950);
+  }
 }
