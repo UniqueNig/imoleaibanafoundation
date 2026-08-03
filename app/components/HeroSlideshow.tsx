@@ -3,14 +3,47 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, HeartHandshake, Sparkles, type LucideIcon } from "lucide-react";
 
+type HeroSlide = {
+  key: string;
+  className: string;
+  icon: LucideIcon;
+  label: string;
+  heading: [string, string];
+  subtext: string;
+};
+
 // Placeholder backdrops standing in for real programme photography — swap
 // for actual photos (via the same Cloudinary pipeline the CMS already uses)
 // once the foundation has some to use. Blurred + scrimmed so hero text stays
 // legible regardless of which slide is showing, in either theme.
-export const HERO_SLIDES: { key: string; className: string; icon: LucideIcon; label: string }[] = [
-  { key: "education", className: "hero-slide-1", icon: BookOpen, label: "Education" },
-  { key: "outreach", className: "hero-slide-2", icon: HeartHandshake, label: "Community Outreach" },
-  { key: "youth", className: "hero-slide-3", icon: Sparkles, label: "Youth Empowerment" },
+export const HERO_SLIDES: HeroSlide[] = [
+  {
+    key: "education",
+    className: "hero-slide-1",
+    icon: BookOpen,
+    label: "Education",
+    heading: ["Illuminating Lives.", "Empowering Communities."],
+    subtext:
+      "Imole Aibana Foundation is dedicated to transforming lives through education, empowerment, and community-driven initiatives — bringing light to underserved communities and building pathways to lasting opportunity. From classroom support and medical outreach to mentorship and youth empowerment, we work directly alongside the communities we serve. Every donation, partnership, and volunteer hour moves that work forward.",
+  },
+  {
+    key: "outreach",
+    className: "hero-slide-2",
+    icon: HeartHandshake,
+    label: "Community Outreach",
+    heading: ["Meeting Communities", "Where They Are."],
+    subtext:
+      "Our outreach teams go directly into underserved communities with food support, health screenings, and honest conversation about what's needed most. We don't parachute in for a single visit — we return, build trust, and design programmes around what the community actually asks for. That consistency is what turns outreach into lasting change.",
+  },
+  {
+    key: "youth",
+    className: "hero-slide-3",
+    icon: Sparkles,
+    label: "Youth Empowerment",
+    heading: ["Shaping The Next", "Generation of Leaders."],
+    subtext:
+      "Young people are at the heart of everything we do. Through mentorship, skills training, and confidence-building programmes, we help students and young adults discover what they're capable of — and give them the tools, guidance, and opportunities to get there. Every mentee today is a mentor for someone else tomorrow.",
+  },
 ];
 
 export default function HeroSlideshow({

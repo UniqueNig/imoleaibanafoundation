@@ -43,33 +43,33 @@ export default function Hero() {
           </AnimatePresence>
         </motion.div>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-glow-gold text-4xl font-semibold leading-[1.1] tracking-tight text-navy-950 dark:text-white sm:text-6xl"
         >
-          Illuminating Lives.
-          <br />
-          <span className="bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 bg-clip-text text-transparent dark:from-gold-300 dark:via-gold-400 dark:to-gold-500">
-            Empowering Communities.
-          </span>
-        </motion.h1>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={HERO_SLIDES[index].key}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-glow-gold text-4xl font-semibold leading-[1.1] tracking-tight text-navy-950 dark:text-white sm:text-6xl">
+                {HERO_SLIDES[index].heading[0]}
+                <br />
+                <span className="bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 bg-clip-text text-transparent dark:from-gold-300 dark:via-gold-400 dark:to-gold-500">
+                  {HERO_SLIDES[index].heading[1]}
+                </span>
+              </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-navy-700/80 dark:text-white/70 sm:text-lg"
-        >
-          Imole Aibana Foundation is dedicated to transforming lives through
-          education, empowerment, and community-driven initiatives — bringing
-          light to underserved communities and building pathways to lasting
-          opportunity. From classroom support and medical outreach to
-          mentorship and youth empowerment, we work directly alongside the
-          communities we serve. Every donation, partnership, and volunteer
-          hour moves that work forward.
-        </motion.p>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-navy-700/80 dark:text-white/70 sm:text-lg">
+                {HERO_SLIDES[index].subtext}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 18 }}
