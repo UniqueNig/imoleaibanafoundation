@@ -6,8 +6,6 @@ import { HandCoins, HeartHandshake, Users } from "lucide-react";
 export default function CtaBand() {
   return (
     <section id="donate" className="relative overflow-hidden bg-background py-24 sm:py-28">
-      <span id="volunteer" className="absolute -top-24" aria-hidden="true" />
-
       <div className="relative mx-auto max-w-5xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -43,14 +41,14 @@ export default function CtaBand() {
                 Donate Now
               </a>
               <a
-                href="#contact"
+                href="/volunteer?tab=partner"
                 className="glass flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03] sm:text-base"
               >
                 <HeartHandshake size={18} />
                 Partner With Us
               </a>
               <a
-                href="#contact"
+                href="/volunteer"
                 className="flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/85 transition-colors hover:border-white/50 hover:text-white sm:text-base"
               >
                 <Users size={18} />

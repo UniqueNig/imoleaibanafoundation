@@ -4,7 +4,17 @@ import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { LayoutDashboard, LogOut, CalendarDays, Newspaper, Images, Menu, X } from "lucide-react";
+import {
+  LayoutDashboard,
+  LogOut,
+  CalendarDays,
+  Newspaper,
+  Images,
+  HandHeart,
+  Handshake,
+  Menu,
+  X,
+} from "lucide-react";
 import Logomark from "@/app/components/Logomark";
 import { logout } from "@/app/admin/actions";
 
@@ -13,6 +23,8 @@ const NAV_ITEMS = [
   { href: "/admin/events", label: "Events", icon: CalendarDays },
   { href: "/admin/posts", label: "Blog Posts", icon: Newspaper },
   { href: "/admin/gallery", label: "Gallery", icon: Images },
+  { href: "/admin/volunteers", label: "Volunteers", icon: HandHeart },
+  { href: "/admin/partners", label: "Partners", icon: Handshake },
 ];
 
 export default function AdminSidebar() {

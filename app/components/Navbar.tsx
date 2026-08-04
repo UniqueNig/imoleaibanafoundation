@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <a
-            href="#volunteer"
+            href="/volunteer"
             className="rounded-full px-4 py-2 text-sm font-medium text-white/85 transition-colors hover:text-white"
           >
             Volunteer
@@ -91,7 +91,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#volunteer"
+            href="/volunteer"
             onClick={() => setOpen(false)}
             className="rounded-xl px-3 py-2.5 text-sm font-medium text-white/85 hover:bg-white/10 hover:text-white"
           >

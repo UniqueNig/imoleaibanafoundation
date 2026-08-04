@@ -85,14 +85,14 @@ export default function Hero() {
             Donate
           </a>
           <a
-            href="#contact"
+            href="/volunteer?tab=partner"
             className="glass-light flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] dark:text-white sm:text-base"
           >
             <HeartHandshake size={18} />
             Partner With Us
           </a>
           <a
-            href="#volunteer"
+            href="/volunteer"
             className="flex items-center gap-2 rounded-full border border-navy-950/25 px-6 py-3 text-sm font-semibold text-navy-700 transition-colors hover:border-navy-950/50 hover:text-navy-950 dark:border-white/25 dark:text-white/85 dark:hover:border-white/50 dark:hover:text-white sm:text-base"
           >
             <Users size={18} />

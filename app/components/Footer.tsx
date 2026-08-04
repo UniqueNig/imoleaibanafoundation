@@ -30,7 +30,8 @@ const QUICK_LINKS = [
   { href: "#about", label: "About Us" },
   { href: "#programmes", label: "Programmes & Projects" },
   { href: "#donate", label: "Donate" },
-  { href: "#volunteer", label: "Volunteer / Partner" },
+  { href: "/volunteer", label: "Volunteer / Partner" },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 export default function Footer() {
