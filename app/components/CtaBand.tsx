@@ -28,8 +28,8 @@ export default function CtaBand() {
               Ready to Be Part of the Light?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-              Whether through a donation, a partnership, or your time — every
-              contribution helps us reach more lives.
+              A donation, a partnership, or your time all help us reach more
+              lives.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">

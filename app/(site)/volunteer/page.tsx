@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import VolunteerPartnerForms from "./VolunteerPartnerForms";
 
 export const metadata: Metadata = {
-  title: "Volunteer & Partner With Us — Imole Aibana Foundation",
+  title: "Volunteer & Partner With Us | Imole Aibana Foundation",
   description: "Join us as a volunteer or explore a partnership with Imole Aibana Foundation.",
 };
 

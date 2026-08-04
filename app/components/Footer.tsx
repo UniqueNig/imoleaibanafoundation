@@ -47,10 +47,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-navy-700/70 dark:text-white/60">
-              Transforming lives through education, empowerment, and
-              community-driven initiatives — bringing light to every life we
-              touch. We partner with schools, volunteers, and donors to turn
-              that mission into programmes people can actually feel.
+              We work through education, empowerment, and community-driven
+              programmes to bring light to the lives we touch. We partner
+              with schools, volunteers, and donors to make that real.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {SOCIAL_LINKS.map((social) => (

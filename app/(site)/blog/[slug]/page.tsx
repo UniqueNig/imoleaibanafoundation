@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await Post.findOne({ slug, published: true }).lean();
   if (!post) return { title: "Post not found" };
   return {
-    title: `${post.title} — Imole Aibana Foundation`,
+    title: `${post.title} | Imole Aibana Foundation`,
     description: post.excerpt || undefined,
   };
 }

@@ -12,10 +12,10 @@ type HeroSlide = {
   subtext: string;
 };
 
-// Placeholder backdrops standing in for real programme photography — swap
+// Placeholder backdrops standing in for real programme photography. Swap
 // for actual photos (via the same Cloudinary pipeline the CMS already uses)
-// once the foundation has some to use. Blurred + scrimmed so hero text stays
-// legible regardless of which slide is showing, in either theme.
+// once the foundation has some to use. Blurred and scrimmed so hero text
+// stays legible regardless of which slide is showing, in either theme.
 export const HERO_SLIDES: HeroSlide[] = [
   {
     key: "education",
@@ -24,7 +24,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     label: "Education",
     heading: ["Illuminating Lives.", "Empowering Communities."],
     subtext:
-      "Imole Aibana Foundation is dedicated to transforming lives through education, empowerment, and community-driven initiatives — bringing light to underserved communities and building pathways to lasting opportunity. From classroom support and medical outreach to mentorship and youth empowerment, we work directly alongside the communities we serve. Every donation, partnership, and volunteer hour moves that work forward.",
+      "Imole Aibana Foundation supports children and families through education, healthcare, and hands-on community work. We fund school fees and learning materials, run medical outreach days, and mentor young people who need a bit of extra support. Every donation, partnership, and volunteer hour goes straight into that work.",
   },
   {
     key: "outreach",
@@ -33,7 +33,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     label: "Community Outreach",
     heading: ["Meeting Communities", "Where They Are."],
     subtext:
-      "Our outreach teams go directly into underserved communities with food support, health screenings, and honest conversation about what's needed most. We don't parachute in for a single visit — we return, build trust, and design programmes around what the community actually asks for. That consistency is what turns outreach into lasting change.",
+      "Our outreach team visits underserved communities with food, health screenings, and time to actually listen. We keep going back to the same places so the relationships and the trust can build over time, and so our programmes stay shaped by what people there tell us they need.",
   },
   {
     key: "youth",
@@ -42,7 +42,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     label: "Youth Empowerment",
     heading: ["Shaping The Next", "Generation of Leaders."],
     subtext:
-      "Young people are at the heart of everything we do. Through mentorship, skills training, and confidence-building programmes, we help students and young adults discover what they're capable of — and give them the tools, guidance, and opportunities to get there. Every mentee today is a mentor for someone else tomorrow.",
+      "Young people are at the centre of our work. Through mentorship, practical skills training, and confidence-building sessions, we help students and young adults figure out what they want to do next, and give them a real path to get there.",
   },
 ];
 

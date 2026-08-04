@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = await Event.findOne({ slug, published: true }).lean();
   if (!event) return { title: "Event not found" };
   return {
-    title: `${event.title} — Imole Aibana Foundation`,
+    title: `${event.title} | Imole Aibana Foundation`,
     description: event.excerpt || undefined,
   };
 }

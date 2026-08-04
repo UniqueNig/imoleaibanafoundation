@@ -5,7 +5,7 @@ import GalleryItem from "@/lib/models/GalleryItem";
 import GalleryGrid from "@/app/components/GalleryGrid";
 
 export const metadata: Metadata = {
-  title: "Gallery — Imole Aibana Foundation",
+  title: "Gallery | Imole Aibana Foundation",
   description: "Photos and videos from our outreach activities and community engagements.",
 };
 

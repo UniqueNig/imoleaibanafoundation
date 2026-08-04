@@ -13,6 +13,8 @@ import {
   HandHeart,
   Handshake,
   HandCoins,
+  Compass,
+  MessageSquare,
   Menu,
   X,
 } from "lucide-react";
@@ -21,12 +23,14 @@ import { logout } from "@/app/admin/actions";
 
 const NAV_ITEMS = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/programmes", label: "Programmes", icon: Compass },
   { href: "/admin/events", label: "Events", icon: CalendarDays },
   { href: "/admin/posts", label: "Blog Posts", icon: Newspaper },
   { href: "/admin/gallery", label: "Gallery", icon: Images },
   { href: "/admin/donations", label: "Donations", icon: HandCoins },
   { href: "/admin/volunteers", label: "Volunteers", icon: HandHeart },
   { href: "/admin/partners", label: "Partners", icon: Handshake },
+  { href: "/admin/contact", label: "Messages", icon: MessageSquare },
 ];
 
 export default function AdminSidebar() {

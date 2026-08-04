@@ -36,12 +36,11 @@ export default function VisionMission() {
             Transforming lives through education and community
           </h2>
           <p className="mt-4 text-base leading-relaxed text-navy-700/80 dark:text-white/70 sm:text-lg">
-            Imole Aibana Foundation exists to create pathways of opportunity
-            for underserved communities — combining education, empowerment,
-            and hands-on outreach to build lasting, positive change. We work
-            hand-in-hand with schools, families, local volunteers, and
-            partner organizations, because the change we're after only holds
-            when the community itself is part of building it.
+            Imole Aibana Foundation works to open up opportunity for
+            underserved communities through education, empowerment, and
+            hands-on outreach. We work closely with schools, families, local
+            volunteers, and partner organizations, because none of this
+            sticks unless the community is helping shape it.
           </p>
         </motion.div>
 

@@ -4,7 +4,7 @@ import Post from "@/lib/models/Post";
 import PostCard from "@/app/components/PostCard";
 
 export const metadata: Metadata = {
-  title: "Blog — Imole Aibana Foundation",
+  title: "Blog | Imole Aibana Foundation",
   description: "News, updates, and stories from Imole Aibana Foundation.",
 };
 
@@ -27,7 +27,7 @@ export default async function BlogPage() {
 
         {posts.length === 0 ? (
           <p className="mt-16 text-center text-sm text-white/55">
-            Nothing published yet — check back soon.
+            Nothing published yet. Check back soon.
           </p>
         ) : (
           <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

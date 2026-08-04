@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed:admin": "node --env-file=.env.local scripts/create-admin.mjs"
+    "seed:admin": "node --env-file=.env.local scripts/create-admin.mjs",
+    "seed:content": "node --env-file=.env.local scripts/seed-content.mjs"
   },
   "dependencies": {
     "@tiptap/extension-image": "^3.29.2",

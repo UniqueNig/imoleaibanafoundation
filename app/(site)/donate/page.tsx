@@ -3,7 +3,7 @@ import { Landmark } from "lucide-react";
 import DonationForm from "./DonationForm";
 
 export const metadata: Metadata = {
-  title: "Donate — Imole Aibana Foundation",
+  title: "Donate | Imole Aibana Foundation",
   description: "Support our work through a bank transfer or a secure online donation.",
 };
 
@@ -17,7 +17,7 @@ export default function DonatePage() {
           </span>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Donate</h1>
           <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">
-            Every contribution — big or small — helps us reach more communities.
+            Every contribution, big or small, helps us reach more communities.
           </p>
         </div>
 

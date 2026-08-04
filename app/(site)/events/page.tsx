@@ -5,7 +5,7 @@ import EventCard from "@/app/components/EventCard";
 import { startOfToday } from "@/lib/dates";
 
 export const metadata: Metadata = {
-  title: "Events — Imole Aibana Foundation",
+  title: "Events | Imole Aibana Foundation",
   description: "Upcoming and past events from Imole Aibana Foundation.",
 };
 
@@ -34,7 +34,7 @@ export default async function EventsPage() {
           <h2 className="text-lg font-semibold text-white">Upcoming</h2>
           {upcoming.length === 0 ? (
             <p className="mt-4 text-sm text-white/55">
-              No upcoming events right now — check back soon.
+              No upcoming events right now. Check back soon.
             </p>
           ) : (
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
