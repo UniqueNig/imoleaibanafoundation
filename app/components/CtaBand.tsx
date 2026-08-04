@@ -19,7 +19,7 @@ export default function CtaBand() {
           <img
             src={STOCK_PHOTOS.youthCelebration}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full scale-110 object-cover blur-lg"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-navy-950/92 via-navy-950/85 to-navy-950/75" />
           <div

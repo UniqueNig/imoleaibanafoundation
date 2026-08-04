@@ -71,7 +71,7 @@ export default function HeroSlideshow({
                 <img
                   src={slide.photo}
                   alt=""
-                  className="h-full w-full scale-105 object-cover"
+                  className="h-full w-full scale-110 object-cover blur-lg"
                 />
               </motion.div>
             )

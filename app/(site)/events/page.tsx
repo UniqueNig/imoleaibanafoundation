@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { connectDB } from "@/lib/db";
 import Event from "@/lib/models/Event";
 import EventCard from "@/app/components/EventCard";
-import PageHero from "@/app/components/PageHero";
-import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 import { startOfToday } from "@/lib/dates";
 
 export const metadata: Metadata = {
@@ -20,12 +18,18 @@ export default async function EventsPage() {
   const past = events.filter((e) => new Date(e.startDate).getTime() < cutoff);
 
   return (
-    <PageHero
-      eyebrow="Get Involved"
-      title="Events"
-      description="Join us at an upcoming outreach, or look back at what we've done together."
-      photo={STOCK_PHOTOS.medicalOutreach}
-    >
+    <div className="mesh-hero relative overflow-hidden py-28 sm:py-36">
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+            Get Involved
+          </span>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Events</h1>
+          <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">
+            Join us at an upcoming outreach, or look back at what we've done together.
+          </p>
+        </div>
+
         <section className="mt-16">
           <h2 className="text-lg font-semibold text-white">Upcoming</h2>
           {upcoming.length === 0 ? (
@@ -73,6 +77,7 @@ export default async function EventsPage() {
             </div>
           </section>
         )}
-    </PageHero>
+      </div>
+    </div>
   );
 }

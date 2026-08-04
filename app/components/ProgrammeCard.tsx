@@ -22,7 +22,7 @@ export default function ProgrammeCard({ programme }: { programme: ProgrammeCardD
         <img
           src={programme.coverImageUrl}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="absolute inset-0 h-full w-full scale-110 object-cover blur-lg transition-transform duration-500 group-hover:scale-[1.15]"
         />
       ) : (
         <div className="absolute inset-0 bg-navy-900" />
