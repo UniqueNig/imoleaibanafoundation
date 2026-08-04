@@ -126,30 +126,35 @@ body {
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
+  /* Bold, opaque brand-gold surface for CTAs and highlight badges —
+     deliberately solid rather than translucent-glass like the other
+     `.glass-*` utilities, since a faint tinted gold barely read against
+     photo backgrounds. Text/icons inside are forced to navy (not
+     whatever text-white the call site happens to use) because white text
+     on a bright gold surface fails contrast — this is the one spot that
+     needs to win over the utility classes on purpose. */
   .glass-gold {
-    background: linear-gradient(
-      165deg,
-      rgba(232, 199, 102, 0.35),
-      rgba(212, 175, 55, 0.12)
-    );
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(242, 223, 160, 0.45);
+    background: linear-gradient(165deg, var(--gold-400), var(--gold-600));
+    border: 1px solid var(--gold-300);
     box-shadow:
-      0 8px 32px rgba(184, 135, 44, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      0 8px 24px rgba(212, 170, 12, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  .glass-gold,
+  .glass-gold * {
+    color: var(--navy-950) !important;
   }
 
   .mesh-hero {
     background:
       radial-gradient(at 15% 15%, rgba(43, 86, 245, 0.55) 0px, transparent 55%),
-      radial-gradient(at 85% 5%, rgba(212, 175, 55, 0.35) 0px, transparent 50%),
+      radial-gradient(at 85% 5%, rgba(242, 196, 21, 0.45) 0px, transparent 50%),
       radial-gradient(at 50% 100%, rgba(91, 125, 255, 0.4) 0px, transparent 55%),
-      radial-gradient(at 95% 85%, rgba(232, 199, 102, 0.22) 0px, transparent 50%),
+      radial-gradient(at 95% 85%, rgba(246, 212, 84, 0.3) 0px, transparent 50%),
       var(--navy-950);
   }
 
   .text-glow-gold {
-    text-shadow: 0 0 40px rgba(212, 175, 55, 0.35);
+    text-shadow: 0 0 40px rgba(242, 196, 21, 0.5);
   }
 }
