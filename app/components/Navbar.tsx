@@ -33,11 +33,9 @@ export default function Navbar() {
           scrolled ? "py-2.5" : "py-3.5"
         }`}
       >
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Imole Aibana Foundation">
           <Logomark className="h-8 w-8 shrink-0" />
-          <span className="text-sm font-semibold tracking-wide text-white sm:text-base">
-            Imole Aibana Foundation
-          </span>
+          <span className="text-sm font-semibold tracking-wide text-white sm:text-base">IAF</span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

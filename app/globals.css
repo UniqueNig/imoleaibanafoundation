@@ -10,23 +10,27 @@
 
 :root {
   --background: #f6f7fb;
-  --foreground: #0a1630;
+  --foreground: #061c40;
 
-  --navy-950: #050b18;
-  --navy-900: #0a1630;
-  --navy-800: #101f42;
-  --navy-700: #17305f;
-  --navy-600: #21407d;
+  /* Navy and gold are sampled directly from the foundation's logo
+     (navy-900 and gold-500 are the exact logo colors); the rest of each
+     ladder keeps the original lightness steps, just recolored to the
+     logo's actual hue/saturation instead of the earlier placeholder blue. */
+  --navy-950: #031025;
+  --navy-900: #061c40;
+  --navy-800: #082656;
+  --navy-700: #0b3476;
+  --navy-600: #0f449b;
 
   --royal-600: #1c3fd6;
   --royal-500: #2b56f5;
   --royal-400: #5b7dff;
   --royal-300: #93a9ff;
 
-  --gold-600: #b8872c;
-  --gold-500: #d4af37;
-  --gold-400: #e8c766;
-  --gold-300: #f2dfa0;
+  --gold-600: #d4aa0c;
+  --gold-500: #f2c415;
+  --gold-400: #f6d454;
+  --gold-300: #f9e495;
 }
 
 /* Dark mode: the brand already leans dark/navy (hero, focus areas, footer

@@ -73,7 +73,9 @@ function commonsFile(filename, width = 800) {
 }
 const PHOTO = {
   medical: commonsFile("Medical_Outreach_to_Ilaje_Community_of_Lagos_state.jpg"),
-  classroom: commonsFile("A_classroom_of_students_(7138907393).jpg"),
+  classroom: commonsFile(
+    "A_young_Congolese_boy_during_a_lesson_at_the_Mugosi_Primary_School,_which_caters_mostly_for_children_of_the_Kahe_refugee_camp_in_the_town_of_Kitschoro,_in_the_north_eastern_part_of_the_Democratic_Republic_of_the_Congo.jpg"
+  ),
   youthCelebration: commonsFile("African_Kids_aim_for_the_sky.jpg"),
   youthEvent: commonsFile("City_Life_Youth_Empowerment.jpg"),
   cleanWater: commonsFile("Cleanwater_mcprogram.jpg"),
