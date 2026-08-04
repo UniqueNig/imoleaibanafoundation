@@ -31,17 +31,17 @@ export default function DonationForm() {
     <form action={formAction} className="space-y-5">
       <div>
         <label className="block text-sm font-medium text-white/80">Amount (₦)</label>
-        <div className="mt-2 grid grid-cols-4 gap-2">
+        <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {PRESET_AMOUNTS.map((amount) => (
             <button
               key={amount}
               type="button"
               onClick={() => selectPreset(amount)}
-              className={`rounded-xl px-2 py-2.5 text-sm font-semibold transition-colors ${
+              className={`rounded-xl px-2 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors ${
                 selected === amount ? "glass-gold text-white" : "glass text-white/70 hover:text-white"
               }`}
             >
-              ₦{amount.toLocaleString()}
+              ₦ {amount.toLocaleString()}
             </button>
           ))}
         </div>
