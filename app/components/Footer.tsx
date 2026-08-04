@@ -29,7 +29,7 @@ const QUICK_LINKS = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About Us" },
   { href: "#programmes", label: "Programmes & Projects" },
-  { href: "#donate", label: "Donate" },
+  { href: "/donate", label: "Donate" },
   { href: "/volunteer", label: "Volunteer / Partner" },
   { href: "/gallery", label: "Gallery" },
 ];

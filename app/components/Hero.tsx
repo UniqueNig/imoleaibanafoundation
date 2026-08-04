@@ -78,7 +78,7 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
           <a
-            href="#donate"
+            href="/donate"
             className="glass-gold flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] dark:text-white sm:text-base"
           >
             <HandCoins size={18} />

@@ -12,6 +12,7 @@ import {
   Images,
   HandHeart,
   Handshake,
+  HandCoins,
   Menu,
   X,
 } from "lucide-react";
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
   { href: "/admin/events", label: "Events", icon: CalendarDays },
   { href: "/admin/posts", label: "Blog Posts", icon: Newspaper },
   { href: "/admin/gallery", label: "Gallery", icon: Images },
+  { href: "/admin/donations", label: "Donations", icon: HandCoins },
   { href: "/admin/volunteers", label: "Volunteers", icon: HandHeart },
   { href: "/admin/partners", label: "Partners", icon: Handshake },
 ];

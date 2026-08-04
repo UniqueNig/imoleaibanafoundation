@@ -61,7 +61,7 @@ export default function Navbar() {
             Volunteer
           </a>
           <a
-            href="#donate"
+            href="/donate"
             className="glass-gold rounded-full px-5 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
           >
             Donate
@@ -98,7 +98,7 @@ export default function Navbar() {
             Volunteer
           </a>
           <a
-            href="#donate"
+            href="/donate"
             onClick={() => setOpen(false)}
             className="glass-gold mt-1 rounded-xl px-3 py-2.5 text-center text-sm font-semibold text-white"
           >
