@@ -1,17 +1,15 @@
-import { placeholderPhoto } from "@/lib/placeholderPhoto";
-
 export default function PageHero({
   eyebrow,
   title,
   description,
-  photoSeed,
+  photo,
   maxWidth = "max-w-6xl",
   children,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   description?: string;
-  photoSeed: string;
+  photo: string;
   maxWidth?: string;
   children?: React.ReactNode;
 }) {
@@ -19,7 +17,7 @@ export default function PageHero({
     <div className="relative overflow-hidden py-28 sm:py-36">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={placeholderPhoto(photoSeed, 1920, 1080)}
+        src={photo}
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
       />

@@ -3,7 +3,7 @@ import { connectDB } from "@/lib/db";
 import Programme from "@/lib/models/Programme";
 import ProgrammeCard from "@/app/components/ProgrammeCard";
 import PageHero from "@/app/components/PageHero";
-import { placeholderPhoto } from "@/lib/placeholderPhoto";
+import { STOCK_PHOTOS, fallbackPhoto } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
   title: "Programmes & Projects | Imole Aibana Foundation",
@@ -19,7 +19,7 @@ export default async function ProgrammesPage() {
       eyebrow="What We Do"
       title="Programmes & Projects"
       description="The work we do every day, across education, health, and community outreach."
-      photoSeed="iaf-hero-programmes"
+      photo={STOCK_PHOTOS.youthEvent}
     >
       {programmes.length === 0 ? (
         <p className="mt-16 text-center text-sm text-white/55">
@@ -35,8 +35,7 @@ export default async function ProgrammesPage() {
                 title: programme.title,
                 excerpt: programme.excerpt,
                 icon: programme.icon,
-                coverImageUrl:
-                  programme.coverImage?.url || placeholderPhoto(`iaf-programme-${programme.slug}`),
+                coverImageUrl: programme.coverImage?.url || fallbackPhoto(),
               }}
             />
           ))}

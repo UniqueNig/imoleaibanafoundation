@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Eye, Target } from "lucide-react";
-import { placeholderPhoto } from "@/lib/placeholderPhoto";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -34,7 +34,7 @@ export default function VisionMission() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={placeholderPhoto("iaf-visionmission", 900, 1125)}
+                src={STOCK_PHOTOS.classroom}
                 alt=""
                 className="h-full w-full object-cover"
               />

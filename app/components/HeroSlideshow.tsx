@@ -2,11 +2,11 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, HeartHandshake, Sparkles, type LucideIcon } from "lucide-react";
-import { placeholderPhoto } from "@/lib/placeholderPhoto";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 type HeroSlide = {
   key: string;
-  photoSeed: string;
+  photo: string;
   icon: LucideIcon;
   label: string;
   heading: [string, string];
@@ -19,7 +19,7 @@ type HeroSlide = {
 export const HERO_SLIDES: HeroSlide[] = [
   {
     key: "education",
-    photoSeed: "iaf-hero-education",
+    photo: STOCK_PHOTOS.classroom,
     icon: BookOpen,
     label: "Education",
     heading: ["Illuminating Lives.", "Empowering Communities."],
@@ -28,7 +28,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     key: "outreach",
-    photoSeed: "iaf-hero-outreach",
+    photo: STOCK_PHOTOS.medicalOutreach,
     icon: HeartHandshake,
     label: "Community Outreach",
     heading: ["Meeting Communities", "Where They Are."],
@@ -37,7 +37,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     key: "youth",
-    photoSeed: "iaf-hero-youth",
+    photo: STOCK_PHOTOS.youthCelebration,
     icon: Sparkles,
     label: "Youth Empowerment",
     heading: ["Shaping The Next", "Generation of Leaders."],
@@ -69,7 +69,7 @@ export default function HeroSlideshow({
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={placeholderPhoto(slide.photoSeed, 1920, 1280)}
+                  src={slide.photo}
                   alt=""
                   className="h-full w-full scale-105 object-cover"
                 />

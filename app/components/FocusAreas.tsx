@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { connectDB } from "@/lib/db";
 import Programme from "@/lib/models/Programme";
 import { getProgrammeIcon } from "@/lib/programmeIcons";
-import { placeholderPhoto } from "@/lib/placeholderPhoto";
+import { fallbackPhoto } from "@/lib/placeholderPhoto";
 
 // Matches the first 6 tiles into the same bento layout the homepage has
 // always used (one large tile, two half-width, two quarter-width, two
@@ -49,7 +49,7 @@ export default async function FocusAreas() {
             <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:auto-rows-[minmax(0,1fr)] lg:grid-cols-4">
               {programmes.map((programme, i) => {
                 const Icon = getProgrammeIcon(programme.icon);
-                const coverUrl = programme.coverImage?.url || placeholderPhoto(`iaf-programme-${programme.slug}`);
+                const coverUrl = programme.coverImage?.url || fallbackPhoto();
                 return (
                   <Link
                     key={String(programme._id)}

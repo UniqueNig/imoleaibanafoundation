@@ -4,6 +4,7 @@ import { connectDB } from "@/lib/db";
 import GalleryItem from "@/lib/models/GalleryItem";
 import GalleryGrid from "@/app/components/GalleryGrid";
 import PageHero from "@/app/components/PageHero";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
   title: "Gallery | Imole Aibana Foundation",
@@ -20,7 +21,7 @@ export default async function GalleryPage() {
         eyebrow="Our Work"
         title="Gallery"
         description="Photos and videos from our outreach activities and the communities we serve."
-        photoSeed="iaf-hero-gallery"
+        photo={STOCK_PHOTOS.youthCelebration}
       />
 
       <div className="bg-background py-16 sm:py-20">

@@ -3,6 +3,7 @@ import { connectDB } from "@/lib/db";
 import Post from "@/lib/models/Post";
 import PostCard from "@/app/components/PostCard";
 import PageHero from "@/app/components/PageHero";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
   title: "Blog | Imole Aibana Foundation",
@@ -18,7 +19,7 @@ export default async function BlogPage() {
       eyebrow="News & Stories"
       title="Blog"
       description="Updates, success stories, and announcements from the foundation."
-      photoSeed="iaf-hero-blog"
+      photo={STOCK_PHOTOS.youthEvent}
     >
       {posts.length === 0 ? (
         <p className="mt-16 text-center text-sm text-white/55">

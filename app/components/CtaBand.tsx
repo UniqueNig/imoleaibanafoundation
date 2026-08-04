@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HandCoins, HeartHandshake, Users } from "lucide-react";
-import { placeholderPhoto } from "@/lib/placeholderPhoto";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export default function CtaBand() {
   return (
@@ -17,7 +17,7 @@ export default function CtaBand() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={placeholderPhoto("iaf-cta", 1600, 900)}
+            src={STOCK_PHOTOS.youthCelebration}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />

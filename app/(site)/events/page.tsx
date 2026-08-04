@@ -3,6 +3,7 @@ import { connectDB } from "@/lib/db";
 import Event from "@/lib/models/Event";
 import EventCard from "@/app/components/EventCard";
 import PageHero from "@/app/components/PageHero";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 import { startOfToday } from "@/lib/dates";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default async function EventsPage() {
       eyebrow="Get Involved"
       title="Events"
       description="Join us at an upcoming outreach, or look back at what we've done together."
-      photoSeed="iaf-hero-events"
+      photo={STOCK_PHOTOS.medicalOutreach}
     >
         <section className="mt-16">
           <h2 className="text-lg font-semibold text-white">Upcoming</h2>

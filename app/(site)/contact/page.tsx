@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mail, Phone, MapPin } from "lucide-react";
 import ContactForm from "./ContactForm";
 import PageHero from "@/app/components/PageHero";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
   title: "Contact Us | Imole Aibana Foundation",
@@ -14,7 +15,7 @@ export default function ContactPage() {
       eyebrow="Get In Touch"
       title="Contact Us"
       description="Questions about our programmes, a partnership idea, or just want to say hello? Send us a message."
-      photoSeed="iaf-hero-contact"
+      photo={STOCK_PHOTOS.classroom}
       maxWidth="max-w-5xl"
     >
         <div className="mt-14 grid gap-6 lg:grid-cols-5">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Landmark } from "lucide-react";
 import DonationForm from "./DonationForm";
 import PageHero from "@/app/components/PageHero";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
   title: "Donate | Imole Aibana Foundation",
@@ -14,7 +15,7 @@ export default function DonatePage() {
       eyebrow="Support Our Work"
       title="Donate"
       description="Every contribution, big or small, helps us reach more communities."
-      photoSeed="iaf-hero-donate"
+      photo={STOCK_PHOTOS.cleanWater}
       maxWidth="max-w-5xl"
     >
         <div className="mt-14 grid gap-6 lg:grid-cols-5">

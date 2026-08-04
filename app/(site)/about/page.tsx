@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Eye, Target, HeartHandshake, ShieldCheck, Users, Sparkles } from "lucide-react";
 import PageHero from "@/app/components/PageHero";
+import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
   title: "About Us | Imole Aibana Foundation",
@@ -37,7 +38,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="Our Story"
         description="Imole Aibana Foundation started with a simple idea: that education, healthcare, and a bit of consistent support can change what's possible for a family. Imole means light in Yoruba, and that's what we're trying to bring to the communities we work in."
-        photoSeed="iaf-hero-about"
+        photo={STOCK_PHOTOS.youthCelebration}
         maxWidth="max-w-3xl"
       />
 

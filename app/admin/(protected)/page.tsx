@@ -9,6 +9,7 @@ import {
   Handshake,
   MessageSquare,
   ArrowRight,
+  Plus,
 } from "lucide-react";
 import { connectDB } from "@/lib/db";
 import Programme from "@/lib/models/Programme";
@@ -20,6 +21,15 @@ import VolunteerApplication from "@/lib/models/VolunteerApplication";
 import PartnerRequest from "@/lib/models/PartnerRequest";
 import ContactMessage from "@/lib/models/ContactMessage";
 import { startOfToday } from "@/lib/dates";
+
+const ICON_TONES = {
+  royal: "bg-royal-500/10 text-royal-500 dark:bg-royal-400/15 dark:text-royal-300",
+  gold: "bg-gold-500/15 text-gold-600 dark:bg-gold-400/20 dark:text-gold-300",
+  emerald: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300",
+  purple: "bg-purple-500/10 text-purple-600 dark:bg-purple-400/15 dark:text-purple-300",
+  rose: "bg-rose-500/10 text-rose-600 dark:bg-rose-400/15 dark:text-rose-300",
+  amber: "bg-amber-500/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-300",
+};
 
 export default async function AdminDashboardPage() {
   await connectDB();
@@ -55,19 +65,20 @@ export default async function AdminDashboardPage() {
   const totalRaised = donations.reduce((sum, d) => sum + d.amount, 0);
   const needsAttention = newVolunteers + newPartners + newMessages;
 
-  const statCards = [
-    { label: "Programmes", value: programmeCount, icon: Compass, href: "/admin/programmes" },
-    { label: "Events", value: eventCount, icon: CalendarDays, href: "/admin/events" },
-    { label: "Blog Posts", value: postCount, icon: Newspaper, href: "/admin/posts" },
-    { label: "Gallery Items", value: galleryCount, icon: Images, href: "/admin/gallery" },
+  const contentCards = [
+    { label: "Programmes", value: programmeCount, icon: Compass, href: "/admin/programmes", tone: "royal" as const },
+    { label: "Events", value: eventCount, icon: CalendarDays, href: "/admin/events", tone: "gold" as const },
+    { label: "Blog Posts", value: postCount, icon: Newspaper, href: "/admin/posts", tone: "purple" as const },
+    { label: "Gallery Items", value: galleryCount, icon: Images, href: "/admin/gallery", tone: "emerald" as const },
   ];
 
   const attentionCards = [
     {
       label: "Total Raised",
-      value: `₦${totalRaised.toLocaleString()}`,
+      value: `₦ ${totalRaised.toLocaleString()}`,
       icon: HandCoins,
       href: "/admin/donations",
+      tone: "emerald" as const,
       highlight: false,
     },
     {
@@ -75,6 +86,7 @@ export default async function AdminDashboardPage() {
       value: newVolunteers,
       icon: HandHeart,
       href: "/admin/volunteers",
+      tone: "rose" as const,
       highlight: newVolunteers > 0,
     },
     {
@@ -82,6 +94,7 @@ export default async function AdminDashboardPage() {
       value: newPartners,
       icon: Handshake,
       href: "/admin/partners",
+      tone: "amber" as const,
       highlight: newPartners > 0,
     },
     {
@@ -89,28 +102,56 @@ export default async function AdminDashboardPage() {
       value: newMessages,
       icon: MessageSquare,
       href: "/admin/contact",
+      tone: "royal" as const,
       highlight: newMessages > 0,
     },
   ];
 
+  const quickActions = [
+    { label: "New Event", href: "/admin/events/new" },
+    { label: "New Post", href: "/admin/posts/new" },
+    { label: "New Programme", href: "/admin/programmes/new" },
+    { label: "New Gallery Item", href: "/admin/gallery/new" },
+  ];
+
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-navy-950 dark:text-white">Dashboard</h1>
-      <p className="mt-1.5 text-sm text-navy-700/70 dark:text-white/60">
-        {needsAttention > 0
-          ? `You have ${needsAttention} new submission${needsAttention === 1 ? "" : "s"} to review.`
-          : "You're all caught up. Manage content from the sidebar."}
-      </p>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold text-navy-950 dark:text-white">Dashboard</h1>
+          <p className="mt-1.5 text-sm text-navy-700/70 dark:text-white/60">
+            {needsAttention > 0
+              ? `You have ${needsAttention} new submission${needsAttention === 1 ? "" : "s"} to review.`
+              : "You're all caught up. Manage content from the sidebar."}
+          </p>
+        </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {statCards.map((card) => (
+        <div className="flex flex-wrap gap-2">
+          {quickActions.map((action) => (
+            <Link
+              key={action.label}
+              href={action.href}
+              className="flex items-center gap-1.5 rounded-xl border border-navy-950/10 bg-white px-3.5 py-2 text-xs font-semibold text-navy-950 transition-colors hover:border-royal-400/40 hover:text-royal-500 dark:border-white/10 dark:bg-navy-900 dark:text-white dark:hover:text-royal-300"
+            >
+              <Plus size={14} />
+              {action.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <h2 className="mt-9 text-xs font-semibold uppercase tracking-wide text-navy-700/50 dark:text-white/40">
+        Content
+      </h2>
+      <div className="mt-3 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {contentCards.map((card) => (
           <Link
             key={card.label}
             href={card.href}
             className="group rounded-2xl border border-navy-950/10 bg-white p-5 transition-colors hover:border-royal-400/40 dark:border-white/10 dark:bg-navy-900"
           >
             <div className="flex items-center justify-between">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-royal-500/10 text-royal-500 dark:bg-royal-400/15 dark:text-royal-300">
+              <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${ICON_TONES[card.tone]}`}>
                 <card.icon size={17} />
               </div>
               <ArrowRight
@@ -124,7 +165,10 @@ export default async function AdminDashboardPage() {
         ))}
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <h2 className="mt-8 text-xs font-semibold uppercase tracking-wide text-navy-700/50 dark:text-white/40">
+        Needs Attention
+      </h2>
+      <div className="mt-3 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {attentionCards.map((card) => (
           <Link
             key={card.label}
@@ -136,13 +180,7 @@ export default async function AdminDashboardPage() {
             }`}
           >
             <div className="flex items-center justify-between">
-              <div
-                className={`flex h-9 w-9 items-center justify-center rounded-xl ${
-                  card.highlight
-                    ? "bg-gold-500/15 text-gold-600 dark:bg-gold-400/20 dark:text-gold-300"
-                    : "bg-navy-950/5 text-navy-700 dark:bg-white/10 dark:text-white/70"
-                }`}
-              >
+              <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${ICON_TONES[card.tone]}`}>
                 <card.icon size={17} />
               </div>
               <ArrowRight
