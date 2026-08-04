@@ -4,8 +4,14 @@ import PageHero from "@/app/components/PageHero";
 import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
-  title: "About Us | Imole Aibana Foundation",
+  title: "About Us",
   description: "The story, vision, mission, and values behind Imole Aibana Foundation.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    url: "/about",
+    title: "About Us | Imole Aibana Foundation",
+    description: "The story, vision, mission, and values behind Imole Aibana Foundation.",
+  },
 };
 
 const CORE_VALUES = [

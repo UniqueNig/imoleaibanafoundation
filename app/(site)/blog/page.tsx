@@ -4,8 +4,14 @@ import Post from "@/lib/models/Post";
 import PostCard from "@/app/components/PostCard";
 
 export const metadata: Metadata = {
-  title: "Blog | Imole Aibana Foundation",
+  title: "Blog",
   description: "News, updates, and stories from Imole Aibana Foundation.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    url: "/blog",
+    title: "Blog | Imole Aibana Foundation",
+    description: "News, updates, and stories from Imole Aibana Foundation.",
+  },
 };
 
 export default async function BlogPage() {

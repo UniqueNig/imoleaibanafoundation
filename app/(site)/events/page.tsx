@@ -5,8 +5,14 @@ import EventCard from "@/app/components/EventCard";
 import { startOfToday } from "@/lib/dates";
 
 export const metadata: Metadata = {
-  title: "Events | Imole Aibana Foundation",
+  title: "Events",
   description: "Upcoming and past events from Imole Aibana Foundation.",
+  alternates: { canonical: "/events" },
+  openGraph: {
+    url: "/events",
+    title: "Events | Imole Aibana Foundation",
+    description: "Upcoming and past events from Imole Aibana Foundation.",
+  },
 };
 
 export default async function EventsPage() {

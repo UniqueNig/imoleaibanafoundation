@@ -5,8 +5,14 @@ import PageHero from "@/app/components/PageHero";
 import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
-  title: "Volunteer & Partner With Us | Imole Aibana Foundation",
+  title: "Volunteer & Partner With Us",
   description: "Join us as a volunteer or explore a partnership with Imole Aibana Foundation.",
+  alternates: { canonical: "/volunteer" },
+  openGraph: {
+    url: "/volunteer",
+    title: "Volunteer & Partner With Us | Imole Aibana Foundation",
+    description: "Join us as a volunteer or explore a partnership with Imole Aibana Foundation.",
+  },
 };
 
 export default function VolunteerPage() {

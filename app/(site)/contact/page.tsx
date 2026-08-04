@@ -3,8 +3,14 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Imole Aibana Foundation",
+  title: "Contact Us",
   description: "Get in touch with Imole Aibana Foundation.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    title: "Contact Us | Imole Aibana Foundation",
+    description: "Get in touch with Imole Aibana Foundation.",
+  },
 };
 
 export default function ContactPage() {

@@ -7,8 +7,14 @@ import PageHero from "@/app/components/PageHero";
 import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
-  title: "Gallery | Imole Aibana Foundation",
+  title: "Gallery",
   description: "Photos and videos from our outreach activities and community engagements.",
+  alternates: { canonical: "/gallery" },
+  openGraph: {
+    url: "/gallery",
+    title: "Gallery | Imole Aibana Foundation",
+    description: "Photos and videos from our outreach activities and community engagements.",
+  },
 };
 
 export default async function GalleryPage() {

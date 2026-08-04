@@ -6,8 +6,14 @@ import PageHero from "@/app/components/PageHero";
 import { STOCK_PHOTOS, fallbackPhoto } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
-  title: "Programmes & Projects | Imole Aibana Foundation",
+  title: "Programmes & Projects",
   description: "Explore our education, health, and community programmes.",
+  alternates: { canonical: "/programmes" },
+  openGraph: {
+    url: "/programmes",
+    title: "Programmes & Projects | Imole Aibana Foundation",
+    description: "Explore our education, health, and community programmes.",
+  },
 };
 
 export default async function ProgrammesPage() {

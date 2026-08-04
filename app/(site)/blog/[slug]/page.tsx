@@ -12,8 +12,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await Post.findOne({ slug, published: true }).lean();
   if (!post) return { title: "Post not found" };
   return {
-    title: `${post.title} | Imole Aibana Foundation`,
+    title: post.title,
     description: post.excerpt || undefined,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      url: `/blog/${post.slug}`,
+      title: `${post.title} | Imole Aibana Foundation`,
+      description: post.excerpt || undefined,
+      images: post.coverImage?.url ? [{ url: post.coverImage.url }] : undefined,
+      publishedTime: post.publishedAt?.toISOString(),
+    },
   };
 }
 

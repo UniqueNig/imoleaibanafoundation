@@ -5,8 +5,14 @@ import PageHero from "@/app/components/PageHero";
 import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
 export const metadata: Metadata = {
-  title: "Donate | Imole Aibana Foundation",
+  title: "Donate",
   description: "Support our work through a bank transfer or a secure online donation.",
+  alternates: { canonical: "/donate" },
+  openGraph: {
+    url: "/donate",
+    title: "Donate | Imole Aibana Foundation",
+    description: "Support our work through a bank transfer or a secure online donation.",
+  },
 };
 
 export default function DonatePage() {
