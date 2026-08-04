@@ -96,17 +96,17 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={16} className="shrink-0 text-gold-600 dark:text-gold-400" />
-                <a href="tel:+2340000000000" className="hover:text-navy-950 dark:hover:text-white">
-                  +234 (0) 000 000 0000
+                <a href="tel:+2349119158748" className="hover:text-navy-950 dark:hover:text-white">
+                  0911 915 8748
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={16} className="shrink-0 text-gold-600 dark:text-gold-400" />
                 <a
-                  href="mailto:info@imoleaibanafoundation.org"
+                  href="mailto:imoleaibanafoundation@gmail.com"
                   className="hover:text-navy-950 dark:hover:text-white"
                 >
-                  info@imoleaibanafoundation.org
+                  imoleaibanafoundation@gmail.com
                 </a>
               </li>
             </ul>

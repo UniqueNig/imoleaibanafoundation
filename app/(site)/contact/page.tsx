@@ -35,19 +35,19 @@ export default function ContactPage() {
               <li className="flex items-center gap-3">
                 <Phone size={18} className="shrink-0 text-gold-600 dark:text-gold-400" />
                 <a
-                  href="tel:+2340000000000"
+                  href="tel:+2349119158748"
                   className="text-navy-700/80 hover:text-navy-950 dark:text-white/70 dark:hover:text-white"
                 >
-                  +234 (0) 000 000 0000
+                  0911 915 8748
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="shrink-0 text-gold-600 dark:text-gold-400" />
                 <a
-                  href="mailto:info@imoleaibanafoundation.org"
+                  href="mailto:imoleaibanafoundation@gmail.com"
                   className="text-navy-700/80 hover:text-navy-950 dark:text-white/70 dark:hover:text-white"
                 >
-                  info@imoleaibanafoundation.org
+                  imoleaibanafoundation@gmail.com
                 </a>
               </li>
             </ul>
