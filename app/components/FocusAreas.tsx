@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { connectDB } from "@/lib/db";
 import Programme from "@/lib/models/Programme";
 import { getProgrammeIcon } from "@/lib/programmeIcons";
+import { placeholderPhoto } from "@/lib/placeholderPhoto";
 
 // Matches the first 6 tiles into the same bento layout the homepage has
 // always used (one large tile, two half-width, two quarter-width, two
@@ -48,19 +49,28 @@ export default async function FocusAreas() {
             <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:auto-rows-[minmax(0,1fr)] lg:grid-cols-4">
               {programmes.map((programme, i) => {
                 const Icon = getProgrammeIcon(programme.icon);
+                const coverUrl = programme.coverImage?.url || placeholderPhoto(`iaf-programme-${programme.slug}`);
                 return (
                   <Link
                     key={String(programme._id)}
                     href={`/programmes/${programme.slug}`}
-                    className={`glass group flex flex-col justify-between rounded-3xl p-7 transition-transform hover:-translate-y-1 ${BENTO_SPANS[i] ?? ""}`}
+                    className={`group relative flex flex-col justify-end overflow-hidden rounded-3xl p-7 ring-1 ring-white/10 transition-transform hover:-translate-y-1 ${BENTO_SPANS[i] ?? ""}`}
                   >
-                    <div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={coverUrl}
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/92 via-navy-950/55 to-navy-950/15" />
+
+                    <div className="relative">
                       <div className="glass-gold flex h-11 w-11 items-center justify-center rounded-2xl">
                         <Icon size={20} className="text-white" />
                       </div>
                       <h3 className="mt-5 text-lg font-semibold text-white">{programme.title}</h3>
                       {programme.excerpt && (
-                        <p className="mt-2.5 text-sm leading-relaxed text-white/65">
+                        <p className="mt-2.5 text-sm leading-relaxed text-white/70">
                           {programme.excerpt}
                         </p>
                       )}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Landmark } from "lucide-react";
 import DonationForm from "./DonationForm";
+import PageHero from "@/app/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Donate | Imole Aibana Foundation",
@@ -9,18 +10,13 @@ export const metadata: Metadata = {
 
 export default function DonatePage() {
   return (
-    <div className="mesh-hero relative overflow-hidden py-28 sm:py-36">
-      <div className="relative mx-auto max-w-5xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
-            Support Our Work
-          </span>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Donate</h1>
-          <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">
-            Every contribution, big or small, helps us reach more communities.
-          </p>
-        </div>
-
+    <PageHero
+      eyebrow="Support Our Work"
+      title="Donate"
+      description="Every contribution, big or small, helps us reach more communities."
+      photoSeed="iaf-hero-donate"
+      maxWidth="max-w-5xl"
+    >
         <div className="mt-14 grid gap-6 lg:grid-cols-5">
           <div className="glass-light rounded-3xl p-8 sm:p-10 lg:col-span-2">
             <div className="glass-gold flex h-12 w-12 items-center justify-center rounded-2xl">
@@ -59,7 +55,6 @@ export default function DonatePage() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </PageHero>
   );
 }

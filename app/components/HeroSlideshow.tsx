@@ -2,24 +2,24 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, HeartHandshake, Sparkles, type LucideIcon } from "lucide-react";
+import { placeholderPhoto } from "@/lib/placeholderPhoto";
 
 type HeroSlide = {
   key: string;
-  className: string;
+  photoSeed: string;
   icon: LucideIcon;
   label: string;
   heading: [string, string];
   subtext: string;
 };
 
-// Placeholder backdrops standing in for real programme photography. Swap
-// for actual photos (via the same Cloudinary pipeline the CMS already uses)
-// once the foundation has some to use. Blurred and scrimmed so hero text
-// stays legible regardless of which slide is showing, in either theme.
+// Placeholder photography standing in for real programme photos. Swap for
+// actual photos (via the same Cloudinary pipeline the CMS already uses) once
+// the foundation has some to use.
 export const HERO_SLIDES: HeroSlide[] = [
   {
     key: "education",
-    className: "hero-slide-1",
+    photoSeed: "iaf-hero-education",
     icon: BookOpen,
     label: "Education",
     heading: ["Illuminating Lives.", "Empowering Communities."],
@@ -28,7 +28,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     key: "outreach",
-    className: "hero-slide-2",
+    photoSeed: "iaf-hero-outreach",
     icon: HeartHandshake,
     label: "Community Outreach",
     heading: ["Meeting Communities", "Where They Are."],
@@ -37,7 +37,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     key: "youth",
-    className: "hero-slide-3",
+    photoSeed: "iaf-hero-youth",
     icon: Sparkles,
     label: "Youth Empowerment",
     heading: ["Shaping The Next", "Generation of Leaders."],
@@ -54,7 +54,7 @@ export default function HeroSlideshow({
   onSelect: (index: number) => void;
 }) {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-background">
+    <div className="absolute inset-0 overflow-hidden bg-navy-950">
       <AnimatePresence>
         {HERO_SLIDES.map(
           (slide, i) =>
@@ -67,20 +67,22 @@ export default function HeroSlideshow({
                 transition={{ duration: 1.4, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
-                <div className={`absolute -inset-10 scale-110 blur-3xl ${slide.className}`} />
-                <slide.icon
-                  aria-hidden="true"
-                  className="absolute right-[6%] top-1/2 -translate-y-1/2 text-navy-950/[0.04] dark:text-white/[0.05]"
-                  size={520}
-                  strokeWidth={1}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={placeholderPhoto(slide.photoSeed, 1920, 1280)}
+                  alt=""
+                  className="h-full w-full scale-105 object-cover"
                 />
               </motion.div>
             )
         )}
       </AnimatePresence>
 
-      {/* Scrim on top of the blurred slide so hero text stays readable */}
-      <div className="absolute inset-0 bg-white/35 dark:bg-navy-950/55" />
+      {/* Scrim on top of the photo so hero text stays readable, always —
+          this hero always renders light text over a dark photo regardless
+          of the site theme toggle, same reasoning as .glass-nav. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/55 to-navy-950/35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-transparent to-transparent" />
 
       <div className="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 gap-2">
         {HERO_SLIDES.map((slide, i) => (
@@ -90,9 +92,7 @@ export default function HeroSlideshow({
             onClick={() => onSelect(i)}
             aria-label={`Show ${slide.label} slide`}
             className={`h-1.5 rounded-full transition-all ${
-              i === index
-                ? "w-6 bg-navy-950 dark:bg-white"
-                : "w-1.5 bg-navy-950/25 hover:bg-navy-950/45 dark:bg-white/40 dark:hover:bg-white/60"
+              i === index ? "w-6 bg-white" : "w-1.5 bg-white/35 hover:bg-white/55"
             }`}
           />
         ))}

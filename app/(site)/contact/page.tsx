@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, Phone, MapPin } from "lucide-react";
 import ContactForm from "./ContactForm";
+import PageHero from "@/app/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Contact Us | Imole Aibana Foundation",
@@ -9,21 +10,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mesh-hero relative overflow-hidden py-28 sm:py-36">
-      <div className="relative mx-auto max-w-5xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
-            Get In Touch
-          </span>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Contact Us
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">
-            Questions about our programmes, a partnership idea, or just want to say hello? Send us
-            a message.
-          </p>
-        </div>
-
+    <PageHero
+      eyebrow="Get In Touch"
+      title="Contact Us"
+      description="Questions about our programmes, a partnership idea, or just want to say hello? Send us a message."
+      photoSeed="iaf-hero-contact"
+      maxWidth="max-w-5xl"
+    >
         <div className="mt-14 grid gap-6 lg:grid-cols-5">
           <div className="glass-light rounded-3xl p-8 sm:p-10 lg:col-span-2">
             <h2 className="text-xl font-semibold text-navy-950 dark:text-white">Reach Us Directly</h2>
@@ -63,7 +56,6 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </PageHero>
   );
 }

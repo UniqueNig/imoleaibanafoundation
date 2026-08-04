@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="glass-light mb-8 inline-flex items-center justify-center rounded-full px-4 py-1.5 text-xs font-medium tracking-wide text-navy-950 dark:text-white/85 sm:text-sm"
+          className="glass mb-8 inline-flex items-center justify-center rounded-full px-4 py-1.5 text-xs font-medium tracking-wide text-white/85 sm:text-sm"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -56,15 +56,15 @@ export default function Hero() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-glow-gold text-4xl font-semibold leading-[1.1] tracking-tight text-navy-950 dark:text-white sm:text-6xl">
+              <h1 className="text-glow-gold text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-6xl">
                 {HERO_SLIDES[index].heading[0]}
                 <br />
-                <span className="bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 bg-clip-text text-transparent dark:from-gold-300 dark:via-gold-400 dark:to-gold-500">
+                <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 bg-clip-text text-transparent">
                   {HERO_SLIDES[index].heading[1]}
                 </span>
               </h1>
 
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-navy-700/80 dark:text-white/70 sm:text-lg">
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
                 {HERO_SLIDES[index].subtext}
               </p>
             </motion.div>
@@ -79,21 +79,21 @@ export default function Hero() {
         >
           <a
             href="/donate"
-            className="glass-gold flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] dark:text-white sm:text-base"
+            className="glass-gold flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03] sm:text-base"
           >
             <HandCoins size={18} />
             Donate
           </a>
           <a
             href="/volunteer?tab=partner"
-            className="glass-light flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] dark:text-white sm:text-base"
+            className="glass flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03] sm:text-base"
           >
             <HeartHandshake size={18} />
             Partner With Us
           </a>
           <a
             href="/volunteer"
-            className="flex items-center gap-2 rounded-full border border-navy-950/25 px-6 py-3 text-sm font-semibold text-navy-700 transition-colors hover:border-navy-950/50 hover:text-navy-950 dark:border-white/25 dark:text-white/85 dark:hover:border-white/50 dark:hover:text-white sm:text-base"
+            className="flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/85 transition-colors hover:border-white/50 hover:text-white sm:text-base"
           >
             <Users size={18} />
             Volunteer
@@ -104,7 +104,7 @@ export default function Hero() {
       <motion.a
         href="#about"
         aria-label="Scroll to learn more"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-navy-950/40 dark:text-white/50"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
       >

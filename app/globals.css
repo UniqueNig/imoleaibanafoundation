@@ -148,48 +148,4 @@ body {
   .text-glow-gold {
     text-shadow: 0 0 40px rgba(212, 175, 55, 0.35);
   }
-
-  /* Hero slideshow backdrops — stand-ins for real programme photography.
-     Heavily blurred + scrim'd (see HeroSlideshow) so they read as abstract
-     colour/light rather than literal images, which keeps the hero text
-     legible without needing real photos yet. Light mode gets a paler wash
-     on the site's light background token; dark mode keeps the original
-     saturated-on-navy look. */
-  .hero-slide-1 {
-    background:
-      radial-gradient(at 25% 20%, rgba(43, 86, 245, 0.35) 0px, transparent 55%),
-      radial-gradient(at 80% 75%, rgba(212, 175, 55, 0.3) 0px, transparent 55%),
-      #f6f7fb;
-  }
-  .hero-slide-2 {
-    background:
-      radial-gradient(at 75% 25%, rgba(91, 125, 255, 0.32) 0px, transparent 55%),
-      radial-gradient(at 20% 80%, rgba(232, 199, 102, 0.28) 0px, transparent 55%),
-      #f6f7fb;
-  }
-  .hero-slide-3 {
-    background:
-      radial-gradient(at 20% 65%, rgba(212, 175, 55, 0.32) 0px, transparent 55%),
-      radial-gradient(at 78% 30%, rgba(43, 86, 245, 0.3) 0px, transparent 55%),
-      #f6f7fb;
-  }
-
-  :root.dark .hero-slide-1 {
-    background:
-      radial-gradient(at 25% 20%, rgba(43, 86, 245, 0.6) 0px, transparent 55%),
-      radial-gradient(at 80% 75%, rgba(212, 175, 55, 0.35) 0px, transparent 55%),
-      var(--navy-950);
-  }
-  :root.dark .hero-slide-2 {
-    background:
-      radial-gradient(at 75% 25%, rgba(91, 125, 255, 0.55) 0px, transparent 55%),
-      radial-gradient(at 20% 80%, rgba(232, 199, 102, 0.3) 0px, transparent 55%),
-      var(--navy-950);
-  }
-  :root.dark .hero-slide-3 {
-    background:
-      radial-gradient(at 20% 65%, rgba(212, 175, 55, 0.45) 0px, transparent 55%),
-      radial-gradient(at 78% 30%, rgba(43, 86, 245, 0.5) 0px, transparent 55%),
-      var(--navy-950);
-  }
 }

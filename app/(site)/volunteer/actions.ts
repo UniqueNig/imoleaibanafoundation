@@ -5,6 +5,13 @@ import { revalidatePath } from "next/cache";
 import { connectDB } from "@/lib/db";
 import VolunteerApplication from "@/lib/models/VolunteerApplication";
 import PartnerRequest from "@/lib/models/PartnerRequest";
+import { sendEmail, notifyAdmin } from "@/lib/resend";
+import {
+  volunteerConfirmationEmail,
+  volunteerAdminNotification,
+  partnerConfirmationEmail,
+  partnerAdminNotification,
+} from "@/lib/emailTemplates";
 
 export type FormActionState = { error?: string; success?: boolean } | undefined;
 
@@ -25,17 +32,32 @@ export async function submitVolunteerApplication(
     return { error: parsed.error.issues[0]?.message ?? "Please check your details." };
   }
 
+  const areaOfInterest = String(formData.get("areaOfInterest") ?? "").trim();
+
   await connectDB();
   await VolunteerApplication.create({
     name: parsed.data.name,
     email: parsed.data.email,
     phone: String(formData.get("phone") ?? "").trim(),
-    areaOfInterest: String(formData.get("areaOfInterest") ?? "").trim(),
+    areaOfInterest,
     availability: String(formData.get("availability") ?? "").trim(),
     message: String(formData.get("message") ?? "").trim(),
   });
 
   revalidatePath("/admin/volunteers");
+
+  await Promise.all([
+    sendEmail({
+      to: parsed.data.email,
+      subject: "We received your volunteer application",
+      html: volunteerConfirmationEmail(parsed.data.name),
+    }),
+    notifyAdmin(
+      `New volunteer application from ${parsed.data.name}`,
+      volunteerAdminNotification({ ...parsed.data, areaOfInterest })
+    ),
+  ]);
+
   return { success: true };
 }
 
@@ -58,16 +80,31 @@ export async function submitPartnerRequest(
     return { error: parsed.error.issues[0]?.message ?? "Please check your details." };
   }
 
+  const partnershipType = String(formData.get("partnershipType") ?? "").trim();
+
   await connectDB();
   await PartnerRequest.create({
     organizationName: parsed.data.organizationName,
     contactName: parsed.data.contactName,
     email: parsed.data.email,
     phone: String(formData.get("phone") ?? "").trim(),
-    partnershipType: String(formData.get("partnershipType") ?? "").trim(),
+    partnershipType,
     message: String(formData.get("message") ?? "").trim(),
   });
 
   revalidatePath("/admin/partners");
+
+  await Promise.all([
+    sendEmail({
+      to: parsed.data.email,
+      subject: "We received your partnership request",
+      html: partnerConfirmationEmail(parsed.data.contactName, parsed.data.organizationName),
+    }),
+    notifyAdmin(
+      `New partner request from ${parsed.data.organizationName}`,
+      partnerAdminNotification({ ...parsed.data, partnershipType })
+    ),
+  ]);
+
   return { success: true };
 }

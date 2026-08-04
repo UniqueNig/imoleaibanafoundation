@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Eye, Target, HeartHandshake, ShieldCheck, Users, Sparkles } from "lucide-react";
+import PageHero from "@/app/components/PageHero";
 
 export const metadata: Metadata = {
   title: "About Us | Imole Aibana Foundation",
@@ -32,21 +33,13 @@ const CORE_VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <div className="mesh-hero relative overflow-hidden py-28 sm:py-36">
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
-            About Us
-          </span>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Our Story
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">
-            Imole Aibana Foundation started with a simple idea: that education, healthcare, and a
-            bit of consistent support can change what's possible for a family. Imole means light in
-            Yoruba, and that's what we're trying to bring to the communities we work in.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="About Us"
+        title="Our Story"
+        description="Imole Aibana Foundation started with a simple idea: that education, healthcare, and a bit of consistent support can change what's possible for a family. Imole means light in Yoruba, and that's what we're trying to bring to the communities we work in."
+        photoSeed="iaf-hero-about"
+        maxWidth="max-w-3xl"
+      />
 
       <section className="bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-6xl px-6">

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HandCoins, HeartHandshake, Users } from "lucide-react";
+import { placeholderPhoto } from "@/lib/placeholderPhoto";
 
 export default function CtaBand() {
   return (
@@ -12,8 +13,15 @@ export default function CtaBand() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="mesh-hero relative overflow-hidden rounded-[2.5rem] px-8 py-14 text-center sm:px-16 sm:py-16"
+          className="relative overflow-hidden rounded-[2.5rem] px-8 py-14 text-center sm:px-16 sm:py-16"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={placeholderPhoto("iaf-cta", 1600, 900)}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-950/92 via-navy-950/85 to-navy-950/75" />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold-400/25 blur-[90px]"
