@@ -60,7 +60,7 @@ export default async function FocusAreas() {
                     <img
                       src={coverUrl}
                       alt=""
-                      className="absolute inset-0 h-full w-full scale-110 object-cover blur-lg transition-transform duration-500 group-hover:scale-[1.15]"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-950/92 via-navy-950/55 to-navy-950/15" />
 
