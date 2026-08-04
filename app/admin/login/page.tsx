@@ -1,16 +1,23 @@
 "use client";
 
 import { useActionState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Logomark from "@/app/components/Logomark";
 import { login, type LoginState } from "./actions";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [state, formAction, pending] = useActionState<LoginState, FormData>(login, undefined);
 
   useEffect(() => {
-    if (state?.error) toast.error(state.error);
-  }, [state]);
+    if (state && "error" in state) {
+      toast.error(state.error);
+    } else if (state?.ok) {
+      toast.success("Signed in. Welcome back.");
+      router.push("/admin");
+    }
+  }, [state, router]);
 
   return (
     <div className="mesh-hero flex min-h-screen items-center justify-center px-6 py-24">
@@ -51,7 +58,7 @@ export default function LoginPage() {
             />
           </div>
 
-          {state?.error && <p className="text-sm text-red-300">{state.error}</p>}
+          {state && "error" in state && <p className="text-sm text-red-300">{state.error}</p>}
 
           <button
             type="submit"

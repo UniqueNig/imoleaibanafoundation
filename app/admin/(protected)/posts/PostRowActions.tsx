@@ -1,10 +1,11 @@
 "use client";
 
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
 import { deletePost, togglePublish } from "./actions";
 
 export default function PostRowActions({
@@ -18,6 +19,7 @@ export default function PostRowActions({
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   function handleTogglePublish() {
     startTransition(async () => {
@@ -28,16 +30,24 @@ export default function PostRowActions({
   }
 
   function handleDelete() {
-    if (!window.confirm(`Delete "${title}"? This can't be undone.`)) return;
     startTransition(async () => {
       await deletePost(id);
       toast.success("Post deleted");
+      setConfirmOpen(false);
       router.refresh();
     });
   }
 
   return (
     <div className="flex items-center gap-1">
+      <ConfirmDialog
+        open={confirmOpen}
+        title={`Delete "${title}"?`}
+        description="This can't be undone."
+        pending={pending}
+        onConfirm={handleDelete}
+        onCancel={() => setConfirmOpen(false)}
+      />
       <button
         type="button"
         onClick={handleTogglePublish}
@@ -56,7 +66,7 @@ export default function PostRowActions({
       </Link>
       <button
         type="button"
-        onClick={handleDelete}
+        onClick={() => setConfirmOpen(true)}
         disabled={pending}
         title="Delete"
         className="flex h-8 w-8 items-center justify-center rounded-lg text-red-600 transition-colors hover:bg-red-50 disabled:opacity-50 dark:text-red-400 dark:hover:bg-red-500/10"

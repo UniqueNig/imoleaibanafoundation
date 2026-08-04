@@ -26,6 +26,14 @@ export default async function EventDetailPage({ params }: Props) {
 
   const date = new Date(event.startDate);
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const dayOnly = new Date(event.startDate);
+  dayOnly.setHours(0, 0, 0, 0);
+  const daysUntil = Math.round((dayOnly.getTime() - today.getTime()) / 86_400_000);
+  const countdownLabel =
+    daysUntil === 0 ? "Today" : daysUntil === 1 ? "Tomorrow" : `${daysUntil} days to go`;
+
   return (
     <article className="bg-background pb-24 pt-32 sm:pt-40">
       <div className="mx-auto max-w-3xl px-6">
@@ -46,6 +54,13 @@ export default async function EventDetailPage({ params }: Props) {
             </span>
           )}
         </div>
+
+        {daysUntil >= 0 && (
+          <div className="glass-gold mt-6 inline-flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-semibold text-white">
+            <CalendarDays size={16} />
+            {countdownLabel}
+          </div>
+        )}
 
         {event.coverImage?.url && (
           // eslint-disable-next-line @next/next/no-img-element

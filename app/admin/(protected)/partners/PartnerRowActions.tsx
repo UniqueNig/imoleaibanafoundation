@@ -1,9 +1,10 @@
 "use client";
 
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { CheckCircle2, RotateCcw, Trash2 } from "lucide-react";
+import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
 import { togglePartnerStatus, deletePartnerRequest } from "./actions";
 
 export default function PartnerRowActions({
@@ -17,6 +18,7 @@ export default function PartnerRowActions({
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   function handleToggle() {
     startTransition(async () => {
@@ -28,16 +30,24 @@ export default function PartnerRowActions({
   }
 
   function handleDelete() {
-    if (!window.confirm(`Delete the request from ${organizationName}? This can't be undone.`)) return;
     startTransition(async () => {
       await deletePartnerRequest(id);
       toast.success("Request deleted");
+      setConfirmOpen(false);
       router.refresh();
     });
   }
 
   return (
     <div className="flex items-center gap-1">
+      <ConfirmDialog
+        open={confirmOpen}
+        title={`Delete the request from ${organizationName}?`}
+        description="This can't be undone."
+        pending={pending}
+        onConfirm={handleDelete}
+        onCancel={() => setConfirmOpen(false)}
+      />
       <button
         type="button"
         onClick={handleToggle}
@@ -49,7 +59,7 @@ export default function PartnerRowActions({
       </button>
       <button
         type="button"
-        onClick={handleDelete}
+        onClick={() => setConfirmOpen(true)}
         disabled={pending}
         title="Delete"
         className="flex h-8 w-8 items-center justify-center rounded-lg text-red-600 transition-colors hover:bg-red-50 disabled:opacity-50 dark:text-red-400 dark:hover:bg-red-500/10"

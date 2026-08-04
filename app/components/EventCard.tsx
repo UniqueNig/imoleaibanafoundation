@@ -10,9 +10,24 @@ export type EventCardData = {
   coverImageUrl?: string;
 };
 
+function daysUntil(startDate: string | Date) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const day = new Date(startDate);
+  day.setHours(0, 0, 0, 0);
+  return Math.round((day.getTime() - today.getTime()) / 86_400_000);
+}
+
+function countdownLabel(days: number) {
+  if (days === 0) return "Today";
+  if (days === 1) return "Tomorrow";
+  return `In ${days} days`;
+}
+
 export default function EventCard({ event, tone = "light" }: { event: EventCardData; tone?: "light" | "dark" }) {
   const date = new Date(event.startDate);
   const dark = tone === "dark";
+  const days = daysUntil(event.startDate);
 
   return (
     <Link
@@ -41,6 +56,11 @@ export default function EventCard({ event, tone = "light" }: { event: EventCardD
         >
           {date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
         </div>
+        {days >= 0 && (
+          <div className="absolute right-3 top-3 rounded-xl bg-gold-500/90 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
+            {countdownLabel(days)}
+          </div>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-5">

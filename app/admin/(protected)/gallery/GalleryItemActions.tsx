@@ -1,10 +1,11 @@
 "use client";
 
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
 import { deleteGalleryItem, togglePublish } from "./actions";
 
 export default function GalleryItemActions({
@@ -18,6 +19,7 @@ export default function GalleryItemActions({
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   function handleTogglePublish() {
     startTransition(async () => {
@@ -28,16 +30,24 @@ export default function GalleryItemActions({
   }
 
   function handleDelete() {
-    if (!window.confirm(`Delete "${caption || "this item"}"? This can't be undone.`)) return;
     startTransition(async () => {
       await deleteGalleryItem(id);
       toast.success("Item deleted");
+      setConfirmOpen(false);
       router.refresh();
     });
   }
 
   return (
     <div className="flex items-center gap-1 rounded-full bg-navy-950/70 p-1 backdrop-blur-sm">
+      <ConfirmDialog
+        open={confirmOpen}
+        title={`Delete "${caption || "this item"}"?`}
+        description="This can't be undone."
+        pending={pending}
+        onConfirm={handleDelete}
+        onCancel={() => setConfirmOpen(false)}
+      />
       <button
         type="button"
         onClick={handleTogglePublish}
@@ -56,7 +66,7 @@ export default function GalleryItemActions({
       </Link>
       <button
         type="button"
-        onClick={handleDelete}
+        onClick={() => setConfirmOpen(true)}
         disabled={pending}
         title="Delete"
         className="flex h-7 w-7 items-center justify-center rounded-full text-red-300 transition-colors hover:bg-red-500/20 disabled:opacity-50"
