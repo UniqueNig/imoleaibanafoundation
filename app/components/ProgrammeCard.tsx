@@ -27,7 +27,7 @@ export default function ProgrammeCard({ programme }: { programme: ProgrammeCardD
       ) : (
         <div className="absolute inset-0 bg-navy-900" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/92 via-navy-950/55 to-navy-950/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/96 via-navy-950/82 to-navy-950/50" />
 
       <div className="relative">
         <div className="glass-gold flex h-11 w-11 items-center justify-center rounded-2xl">

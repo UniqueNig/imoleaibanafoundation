@@ -62,7 +62,7 @@ export default async function FocusAreas() {
                       alt=""
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/92 via-navy-950/55 to-navy-950/15" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/96 via-navy-950/82 to-navy-950/50" />
 
                     <div className="relative">
                       <div className="glass-gold flex h-11 w-11 items-center justify-center rounded-2xl">

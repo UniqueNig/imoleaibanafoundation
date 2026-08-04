@@ -81,8 +81,8 @@ export default function HeroSlideshow({
       {/* Scrim on top of the photo so hero text stays readable, always —
           this hero always renders light text over a dark photo regardless
           of the site theme toggle, same reasoning as .glass-nav. */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/55 to-navy-950/35" />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/97 via-navy-950/80 to-navy-950/55" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-transparent" />
 
       <div className="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 gap-2">
         {HERO_SLIDES.map((slide, i) => (

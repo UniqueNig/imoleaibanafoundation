@@ -45,8 +45,12 @@ export default function DonationForm() {
             </button>
           ))}
         </div>
+        <label htmlFor="amount" className="mt-3 block text-xs font-medium text-white/50">
+          Or enter a custom amount
+        </label>
         <input
           ref={amountInputRef}
+          id="amount"
           name="amount"
           type="number"
           min={100}
@@ -54,8 +58,8 @@ export default function DonationForm() {
           required
           defaultValue={selected}
           onChange={() => setSelected(0)}
-          placeholder="Or enter a custom amount"
-          className={`${inputClass} mt-2`}
+          placeholder="e.g. 15,000"
+          className={`${inputClass} mt-1.5`}
         />
       </div>
 

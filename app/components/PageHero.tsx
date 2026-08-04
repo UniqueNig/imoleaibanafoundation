@@ -21,7 +21,7 @@ export default function PageHero({
         alt=""
         className="absolute inset-0 h-full w-full scale-110 object-cover blur-lg"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/88 via-navy-950/72 to-navy-950/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/94 via-navy-950/88 to-navy-950/95" />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-gold-400/20 blur-[100px]"

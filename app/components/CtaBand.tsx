@@ -21,7 +21,7 @@ export default function CtaBand() {
             alt=""
             className="absolute inset-0 h-full w-full scale-110 object-cover blur-lg"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy-950/92 via-navy-950/85 to-navy-950/75" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-950/92 to-navy-950/88" />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold-400/25 blur-[90px]"

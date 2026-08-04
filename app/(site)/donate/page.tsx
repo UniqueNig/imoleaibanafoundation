@@ -32,7 +32,7 @@ export default function DonatePage() {
             <dl className="mt-6 space-y-4 text-sm">
               <div>
                 <dt className="text-navy-700/50 dark:text-white/45">Bank Name</dt>
-                <dd className="font-medium text-navy-950 dark:text-white">First Bank of Nigeria</dd>
+                <dd className="font-medium text-navy-950 dark:text-white">Zenith Bank</dd>
               </div>
               <div>
                 <dt className="text-navy-700/50 dark:text-white/45">Account Name</dt>
@@ -40,7 +40,7 @@ export default function DonatePage() {
               </div>
               <div>
                 <dt className="text-navy-700/50 dark:text-white/45">Account Number</dt>
-                <dd className="font-medium text-navy-950 dark:text-white">0000000000</dd>
+                <dd className="font-medium text-navy-950 dark:text-white">1312341892</dd>
               </div>
             </dl>
           </div>

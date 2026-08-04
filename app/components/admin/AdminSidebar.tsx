@@ -15,6 +15,7 @@ import {
   HandCoins,
   Compass,
   MessageSquare,
+  UserCircle,
   Menu,
   X,
 } from "lucide-react";
@@ -31,6 +32,7 @@ const NAV_ITEMS = [
   { href: "/admin/volunteers", label: "Volunteers", icon: HandHeart },
   { href: "/admin/partners", label: "Partners", icon: Handshake },
   { href: "/admin/contact", label: "Messages", icon: MessageSquare },
+  { href: "/admin/profile", label: "Profile", icon: UserCircle },
 ];
 
 export default function AdminSidebar() {
