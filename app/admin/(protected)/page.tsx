@@ -10,12 +10,14 @@ import {
   MessageSquare,
   ArrowRight,
   Plus,
+  Users,
 } from "lucide-react";
 import { connectDB } from "@/lib/db";
 import Programme from "@/lib/models/Programme";
 import Event from "@/lib/models/Event";
 import Post from "@/lib/models/Post";
 import GalleryItem from "@/lib/models/GalleryItem";
+import TeamMember from "@/lib/models/TeamMember";
 import Donation from "@/lib/models/Donation";
 import VolunteerApplication from "@/lib/models/VolunteerApplication";
 import PartnerRequest from "@/lib/models/PartnerRequest";
@@ -39,6 +41,7 @@ export default async function AdminDashboardPage() {
     eventCount,
     postCount,
     galleryCount,
+    teamCount,
     donations,
     newVolunteers,
     newPartners,
@@ -50,6 +53,7 @@ export default async function AdminDashboardPage() {
     Event.countDocuments(),
     Post.countDocuments(),
     GalleryItem.countDocuments(),
+    TeamMember.countDocuments(),
     Donation.find({ status: "success" }).select("amount").lean(),
     VolunteerApplication.countDocuments({ status: "new" }),
     PartnerRequest.countDocuments({ status: "new" }),
@@ -70,6 +74,7 @@ export default async function AdminDashboardPage() {
     { label: "Events", value: eventCount, icon: CalendarDays, href: "/admin/events", tone: "gold" as const },
     { label: "Blog Posts", value: postCount, icon: Newspaper, href: "/admin/posts", tone: "purple" as const },
     { label: "Gallery Items", value: galleryCount, icon: Images, href: "/admin/gallery", tone: "emerald" as const },
+    { label: "Team Members", value: teamCount, icon: Users, href: "/admin/team", tone: "rose" as const },
   ];
 
   const attentionCards = [
@@ -112,6 +117,7 @@ export default async function AdminDashboardPage() {
     { label: "New Post", href: "/admin/posts/new" },
     { label: "New Programme", href: "/admin/programmes/new" },
     { label: "New Gallery Item", href: "/admin/gallery/new" },
+    { label: "New Team Member", href: "/admin/team/new" },
   ];
 
   return (

@@ -65,6 +65,33 @@ const galleryItemSchema = new mongoose.Schema(
 );
 const GalleryItem = mongoose.models.GalleryItem ?? mongoose.model("GalleryItem", galleryItemSchema);
 
+const teamMemberSchema = new mongoose.Schema(
+  {
+    name: String,
+    role: String,
+    bio: String,
+    photo: { url: String, publicId: String },
+    order: Number,
+    published: Boolean,
+  },
+  { timestamps: true }
+);
+const TeamMember = mongoose.models.TeamMember ?? mongoose.model("TeamMember", teamMemberSchema);
+
+// A generic "photo pending" avatar (navy circle, gold person silhouette)
+// instead of a real Commons photo of an actual person — unlike the crowd/
+// scene photos used elsewhere, a named "team member" placeholder paired
+// with a real identifiable individual's photo would misattribute that real
+// person to a role they never held, even temporarily.
+function personAvatar() {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+    <rect width="400" height="400" fill="#061c40"/>
+    <circle cx="200" cy="160" r="70" fill="#f2c415"/>
+    <path d="M 60 380 Q 60 240 200 240 Q 340 240 340 380 Z" fill="#f2c415"/>
+  </svg>`;
+  return `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
+}
+
 // Curated, freely-licensed photography (Wikimedia Commons), hand-picked per
 // theme — mirrors lib/placeholderPhoto.ts, duplicated here since this is a
 // standalone Node script that can't import the app's TS modules directly.
@@ -228,6 +255,15 @@ const galleryItems = [
   { caption: "Volunteers packing supply bags", category: "Community Engagement", url: PHOTO.youthEvent },
 ];
 
+const teamMembers = [
+  { name: "To Be Announced", role: "Founder and President", order: 0 },
+  { name: "To Be Announced", role: "Board Director", order: 1 },
+  { name: "To Be Announced", role: "Board Director", order: 2 },
+  { name: "To Be Announced", role: "Digital Strategy and Communications Lead", order: 3 },
+  { name: "To Be Announced", role: "Secretary and Administration Lead", order: 4 },
+  { name: "To Be Announced", role: "Logistics / Head of Operations", order: 5 },
+];
+
 async function main() {
   await mongoose.connect(MONGODB_URI);
 
@@ -277,6 +313,23 @@ async function main() {
     );
   }
   console.log(`Seeded ${galleryItems.length} gallery items.`);
+
+  for (const member of teamMembers) {
+    await TeamMember.findOneAndUpdate(
+      { order: member.order },
+      {
+        $set: {
+          name: member.name,
+          role: member.role,
+          order: member.order,
+          photo: { url: personAvatar(), publicId: "" },
+          published: true,
+        },
+      },
+      { upsert: true }
+    );
+  }
+  console.log(`Seeded ${teamMembers.length} team members.`);
 
   await mongoose.disconnect();
 }
