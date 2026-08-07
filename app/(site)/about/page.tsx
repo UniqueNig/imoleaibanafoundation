@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eye, Target, HeartHandshake, ShieldCheck, Users, Sparkles } from "lucide-react";
+import { Eye, Target, HandHeart, Sunrise, ShieldCheck, Sprout, Award } from "lucide-react";
 import PageHero from "@/app/components/PageHero";
 import { STOCK_PHOTOS } from "@/lib/placeholderPhoto";
 
@@ -14,27 +14,41 @@ export const metadata: Metadata = {
   },
 };
 
+// Our core values, spelling out SHINE.
 const CORE_VALUES = [
   {
-    icon: HeartHandshake,
-    title: "Compassion",
-    description: "We treat every person we work with as someone worth showing up for, not a statistic.",
+    icon: HandHeart,
+    title: "Service",
+    description: "We show up for the communities we serve, not just in words but in the work we do.",
+  },
+  {
+    icon: Sunrise,
+    title: "Hope",
+    description: "We believe things can get better, and we work every day to make that true.",
   },
   {
     icon: ShieldCheck,
     title: "Integrity",
-    description: "We're honest about what we can and can't do, and accountable for the resources entrusted to us.",
+    description: "We're honest about what we can do, and accountable for what's entrusted to us.",
   },
   {
-    icon: Users,
-    title: "Community First",
-    description: "We design programmes with the communities we serve, not just for them.",
+    icon: Sprout,
+    title: "Nurture",
+    description: "We invest in people for the long run, not just for a single visit.",
   },
   {
-    icon: Sparkles,
-    title: "Consistency",
-    description: "Real change takes time. We stay committed to a place long after the first visit.",
+    icon: Award,
+    title: "Excellence",
+    description: "We hold our work to a high standard, because the people we serve deserve it.",
   },
+];
+
+const OBJECTIVES = [
+  "Providing educational support and learning opportunities for children and youths.",
+  "Empowering individuals through skills acquisition, mentorship, and capacity-building programmes.",
+  "Supporting vulnerable members of society through outreach and welfare initiatives.",
+  "Promoting community development through sustainable projects and partnerships.",
+  "Encouraging leadership, innovation, and social responsibility among young people.",
 ];
 
 export default function AboutPage() {
@@ -59,8 +73,8 @@ export default function AboutPage() {
                 Our Vision
               </h2>
               <p className="mt-3 leading-relaxed text-navy-700/80 dark:text-white/70">
-                A world where every individual, regardless of background, has access to
-                education, opportunity, and dignity.
+                To empower lives, nurture dreams, and create a future where no one is left
+                behind.
               </p>
             </div>
 
@@ -72,10 +86,28 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="mt-3 leading-relaxed text-navy-700/80 dark:text-white/70">
-                To transform lives through education, empowerment, and sustainable
-                community-driven initiatives.
+                To uplift lives through education, empowerment, and community-driven
+                initiatives.
               </p>
             </div>
+          </div>
+
+          <div className="mx-auto mt-16 max-w-3xl">
+            <h2 className="text-center text-xl font-semibold text-navy-950 dark:text-white">
+              Our Objectives
+            </h2>
+            <ul className="mt-8 space-y-4">
+              {OBJECTIVES.map((objective, i) => (
+                <li key={objective} className="flex gap-4">
+                  <span className="glass-gold flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
+                    {i + 1}
+                  </span>
+                  <p className="pt-1 leading-relaxed text-navy-700/80 dark:text-white/70">
+                    {objective}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -87,11 +119,14 @@ export default function AboutPage() {
               What Guides Us
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Our Core Values
+              SHINE
             </h2>
+            <p className="mt-3 text-base text-white/65">
+              Our core values: Service, Hope, Integrity, Nurture, Excellence.
+            </p>
           </div>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {CORE_VALUES.map((value) => (
               <div key={value.title} className="glass rounded-3xl p-7">
                 <div className="glass-gold flex h-11 w-11 items-center justify-center rounded-2xl">
@@ -119,7 +154,7 @@ export default function AboutPage() {
               people we reach along the way. Thank you for being part of that with us.
             </p>
             <p className="mt-6 text-sm font-medium text-navy-700/70 dark:text-white/50">
-              Founder, Imole Aibana Foundation
+              Hon. Sherif Aibana, Founder, Imole Aibana Foundation
             </p>
           </div>
         </div>

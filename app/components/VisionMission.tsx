@@ -76,8 +76,8 @@ export default function VisionMission() {
                 <div>
                   <h3 className="font-semibold text-navy-950 dark:text-white">Our Vision</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-navy-700/80 dark:text-white/70">
-                    A world where every individual, regardless of background, has
-                    access to the light of education, opportunity, and dignity.
+                    To empower lives, nurture dreams, and create a future where no one
+                    is left behind.
                   </p>
                 </div>
               </div>
@@ -89,9 +89,8 @@ export default function VisionMission() {
                 <div>
                   <h3 className="font-semibold text-navy-950 dark:text-white">Our Mission</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-navy-700/80 dark:text-white/70">
-                    To transform lives through education, empowerment, and
-                    sustainable community-driven initiatives that create
-                    lasting, positive change.
+                    To uplift lives through education, empowerment, and
+                    community-driven initiatives.
                   </p>
                 </div>
               </div>

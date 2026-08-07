@@ -256,7 +256,7 @@ const galleryItems = [
 ];
 
 const teamMembers = [
-  { name: "To Be Announced", role: "Founder and President", order: 0 },
+  { name: "Hon. Sherif Aibana", role: "Founder and President", order: 0 },
   { name: "To Be Announced", role: "Board Director", order: 1 },
   { name: "To Be Announced", role: "Board Director", order: 2 },
   { name: "To Be Announced", role: "Digital Strategy and Communications Lead", order: 3 },
