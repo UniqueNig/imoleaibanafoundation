@@ -70,8 +70,8 @@ export default function VisionMission() {
 
             <div className="mt-8 space-y-6">
               <div className="flex gap-4">
-                <div className="glass-gold flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl">
-                  <Eye size={20} className="text-navy-950 dark:text-white" />
+                <div className="glass-blue flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl">
+                  <Eye size={20} />
                 </div>
                 <div>
                   <h3 className="font-semibold text-navy-950 dark:text-white">Our Vision</h3>

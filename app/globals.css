@@ -145,6 +145,21 @@ body {
     color: var(--navy-950) !important;
   }
 
+  /* Bold, opaque brand-blue surface — the same treatment as .glass-gold,
+     for spots that want blue to actually read as a solid brand color
+     instead of the thin text-only accent it was limited to before. */
+  .glass-blue {
+    background: linear-gradient(135deg, var(--royal-400) 0%, var(--royal-500) 55%, var(--royal-600) 100%);
+    border: 1px solid var(--royal-300);
+    box-shadow:
+      0 8px 24px rgba(28, 63, 214, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+  .glass-blue,
+  .glass-blue * {
+    color: #ffffff !important;
+  }
+
   .mesh-hero {
     background:
       radial-gradient(at 15% 15%, rgba(43, 86, 245, 0.55) 0px, transparent 55%),

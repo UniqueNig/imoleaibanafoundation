@@ -66,8 +66,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="glass-light rounded-3xl p-8 sm:p-10">
-              <div className="glass-gold flex h-12 w-12 items-center justify-center rounded-2xl">
-                <Eye size={22} className="text-navy-950 dark:text-white" />
+              <div className="glass-blue flex h-12 w-12 items-center justify-center rounded-2xl">
+                <Eye size={22} />
               </div>
               <h2 className="mt-6 text-xl font-semibold text-navy-950 dark:text-white">
                 Our Vision

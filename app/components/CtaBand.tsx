@@ -50,7 +50,7 @@ export default function CtaBand() {
               </a>
               <a
                 href="/volunteer?tab=partner"
-                className="glass flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.03] sm:text-base"
+                className="glass-blue flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] sm:text-base"
               >
                 <HeartHandshake size={18} />
                 Partner With Us
