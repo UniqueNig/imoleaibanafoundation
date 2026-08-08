@@ -22,7 +22,7 @@ export default async function BlogPage() {
     <div className="mesh-hero relative overflow-hidden py-28 sm:py-36">
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-royal-300">
             News &amp; Stories
           </span>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Blog</h1>

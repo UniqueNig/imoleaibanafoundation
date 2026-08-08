@@ -115,7 +115,7 @@ export default function AboutPage() {
       <section className="mesh-hero relative overflow-hidden py-24 sm:py-32">
         <div className="relative mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-royal-300">
               What Guides Us
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">

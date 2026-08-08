@@ -33,7 +33,7 @@ export default function PageHero({
 
       <div className={`relative mx-auto ${maxWidth} px-6`}>
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-royal-300">
             {eyebrow}
           </span>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">

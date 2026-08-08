@@ -28,7 +28,7 @@ export default function NotFound() {
       />
 
       <div className="relative mx-auto max-w-2xl px-6 text-center">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-royal-300">
           Lost in the Light
         </span>
         <h1 className="text-glow-gold mt-4 text-7xl font-bold tracking-tight text-white sm:text-8xl">
