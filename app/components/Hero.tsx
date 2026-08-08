@@ -28,8 +28,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="glass mb-8 inline-flex items-center justify-center rounded-full px-4 py-1.5 text-xs font-medium tracking-wide text-white/85 sm:text-sm"
+          className="mb-8 inline-flex items-center justify-center gap-2 rounded-full border border-royal-400/40 bg-royal-500/15 px-4 py-1.5 text-xs font-semibold tracking-wide text-white sm:text-sm"
         >
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-royal-300" />
           <AnimatePresence mode="wait">
             <motion.span
               key={HERO_SLIDES[index].label}
@@ -38,7 +39,7 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
             >
-              {HERO_SLIDES[index].label}
+              {HERO_SLIDES[index].label} &middot; Lagos, Nigeria
             </motion.span>
           </AnimatePresence>
         </motion.div>

@@ -134,7 +134,7 @@ body {
      on a bright gold surface fails contrast — this is the one spot that
      needs to win over the utility classes on purpose. */
   .glass-gold {
-    background: linear-gradient(165deg, var(--gold-400), var(--gold-600));
+    background: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-500) 55%, var(--gold-600) 100%);
     border: 1px solid var(--gold-300);
     box-shadow:
       0 8px 24px rgba(212, 170, 12, 0.5),

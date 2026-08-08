@@ -71,7 +71,7 @@ export default function HeroSlideshow({
                 <img
                   src={slide.photo}
                   alt=""
-                  className="h-full w-full scale-110 object-cover blur-lg"
+                  className="h-full w-full scale-110 object-cover blur-sm"
                 />
               </motion.div>
             )
@@ -92,7 +92,7 @@ export default function HeroSlideshow({
             onClick={() => onSelect(i)}
             aria-label={`Show ${slide.label} slide`}
             className={`h-1.5 rounded-full transition-all ${
-              i === index ? "w-6 bg-white" : "w-1.5 bg-white/35 hover:bg-white/55"
+              i === index ? "w-6 bg-royal-400" : "w-1.5 bg-white/35 hover:bg-white/55"
             }`}
           />
         ))}

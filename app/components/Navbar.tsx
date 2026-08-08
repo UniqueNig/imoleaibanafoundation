@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Logomark from "./Logomark";
-import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { href: "/about", label: "About" },
@@ -67,7 +66,6 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
           <Link
             href="/volunteer"
             className="rounded-full px-4 py-2 text-sm font-medium text-navy-700/80 transition-colors hover:text-royal-500 dark:text-white/85 dark:hover:text-royal-300"
@@ -117,10 +115,6 @@ export default function Navbar() {
           >
             Volunteer
           </Link>
-          <div className="mt-1 flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium text-navy-700/85 dark:text-white/85">
-            Theme
-            <ThemeToggle />
-          </div>
         </div>
       )}
     </header>

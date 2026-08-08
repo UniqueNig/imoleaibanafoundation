@@ -19,7 +19,7 @@ export default function PageHero({
       <img
         src={photo}
         alt=""
-        className="absolute inset-0 h-full w-full scale-110 object-cover blur-lg"
+        className="absolute inset-0 h-full w-full scale-110 object-cover blur-sm"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950/94 via-navy-950/88 to-navy-950/95" />
       <div
