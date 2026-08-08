@@ -39,7 +39,7 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
             >
-              {HERO_SLIDES[index].label} &middot; Lagos, Nigeria
+              {HERO_SLIDES[index].label}
             </motion.span>
           </AnimatePresence>
         </motion.div>
